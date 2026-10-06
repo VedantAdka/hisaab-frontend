@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+  }
+  a {
+    @apply text-brand-dark;
+  }
+  a:hover {
+    @apply text-brand-darker;
+  }
+}
+
+/* Shared hover-animation vocabulary, carried over from the design wireframes
+   (hs-btn-primary, hs-card, etc.) so the built app feels identical to them. */
+@layer components {
+  .hs-btn-primary {
+    @apply bg-brand text-white cursor-pointer transition-all duration-150 ease-out;
+  }
+  .hs-btn-primary:hover {
+    background-color: theme('colors.brand.hover');
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(217, 115, 13, 0.35);
+  }
+  .hs-btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(217, 115, 13, 0.3);
+  }
+  .hs-btn-primary:disabled {
+    @apply opacity-60 cursor-not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hs-btn-outline {
+    @apply cursor-pointer transition-all duration-150 ease-out;
+  }
+  .hs-btn-outline:hover {
+    background-color: theme('colors.brand.tint');
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(28, 27, 26, 0.08);
+  }
+
+  .hs-btn-danger {
+    @apply cursor-pointer transition-all duration-150 ease-out;
+  }
+  .hs-btn-danger:hover {
+    background-color: #f6d3d3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(193, 74, 74, 0.22);
+  }
+
+  .hs-nav-item {
+    @apply cursor-pointer rounded-[10px] transition-colors duration-150 ease-out;
+  }
+  .hs-nav-item:hover {
+    background-color: #f2f0eb;
+  }
+
+  .hs-card {
+    @apply cursor-pointer transition-all duration-150 ease-out;
+  }
+  .hs-card:hover {
+    box-shadow: 0 10px 24px rgba(28, 27, 26, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .hs-fab {
+    @apply cursor-pointer transition-all duration-150 ease-out;
+  }
+  .hs-fab:hover {
+    transform: scale(1.08) rotate(90deg);
+    box-shadow: 0 10px 22px rgba(217, 115, 13, 0.5);
+  }
+
+  .hs-icon-btn {
+    @apply cursor-pointer inline-flex transition-transform duration-150 ease-out;
+  }
+  .hs-icon-btn:hover {
+    transform: scale(1.15);
+  }
+
+  .hs-tab {
+    @apply cursor-pointer transition-colors duration-150 ease-out;
+  }
+
+  .hs-chip {
+    @apply cursor-pointer transition-all duration-150 ease-out;
+  }
+  .hs-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(28, 27, 26, 0.08);
+  }
+
+  .hs-input {
+    @apply w-full bg-white border border-border rounded-xl2 px-3.5 py-3 text-sm text-ink-soft outline-none transition-colors;
+  }
+  .hs-input:focus {
+    @apply border-brand;
+  }
+}
